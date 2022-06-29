@@ -1,29 +1,26 @@
 const mongoose = require('mongoose');
 
 
+const dbConnection = async() => {
 
-const dbConnections = async () => {
-
-    try{
-
-        await mongoose.connect(process.env.DB_CNN,
-        {
-           // useNewUrlParser: true,
-           // useUnifieldTopology: true,
-           // useCreateIndex: true
+    try {
+        await mongoose.connect( process.env.DB_CNN , {
+            //useNewUrlParser: true, 
+            //useUnifiedTopology: true,
+            //useCreateIndex: true
         });
 
-        console.log('DB online');
-
-    } catch (error){
+        console.log('DB Online');
+        
+    } catch (error) {
         console.log(error);
-        throw new Error('Error en la conexion a la DB');
+        throw new Error('Error a la hora de iniciar la BD ver logs');
     }
-   
-  
+
 
 }
 
+
 module.exports = {
-    dbConnections
+    dbConnection
 }
