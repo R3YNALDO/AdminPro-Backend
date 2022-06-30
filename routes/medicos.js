@@ -31,11 +31,14 @@ router.post( '/',
 );
 
 router.put( '/:id',
-    [],
+    validarJWT,
+    validarCampos,
     actualizarMedico
 );
 
 router.delete( '/:id',
+    validarJWT,
+    validarCampos,
     borrarMedico
 );
 
